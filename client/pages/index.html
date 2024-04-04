@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/lobby.css" />
+    <link rel="stylesheet" href="css/room.css" />
+    <title>PicGo!</title>
+  </head>
+
+  <body>
+    <script src="js/main.js"></script>
+    <script src="js/ws.js"></script>
+
+    <div id="error_toast"></div>
+
+    <main id="main" class="lobby">
+      <img class="logo" src="img/logo.svg" />
+
+      <div class="player_costume">
+        <img
+          id="player_head"
+          class="player_head"
+          src="img/player/head/a.svg"
+          alt=""
+        />
+        <img id="player_eye" src="img/player/eye/a.svg" alt="" />
+        <img id="player_mouth" src="img/player/mouth/a.svg" alt="" />
+      </div>
+
+      <div class="label">Pick a colour</div>
+
+      <div class="colour_select">
+        <div class="colour_select__item colour_a">
+          <button class="player_head_colour" data-colour="a"></button>
+        </div>
+        <div class="colour_select__item colour_b">
+          <button class="player_head_colour" data-colour="b"></button>
+        </div>
+        <div class="colour_select__item colour_c">
+          <button class="player_head_colour" data-colour="c"></button>
+        </div>
+        <div class="colour_select__item colour_d">
+          <button class="player_head_colour" data-colour="d"></button>
+        </div>
+        <div class="colour_select__item colour_e">
+          <button class="player_head_colour" data-colour="e"></button>
+        </div>
+        <div class="colour_select__item colour_f">
+          <button class="player_head_colour" data-colour="f"></button>
+        </div>
+        <div class="colour_select__item colour_g">
+          <button class="player_head_colour" data-colour="g"></button>
+        </div>
+        <div class="colour_select__item colour_h">
+          <button class="player_head_colour" data-colour="h"></button>
+        </div>
+      </div>
+
+      <div id="costume_carousel" class="carousel">
+        <div class="carousel__labels">
+          <div class="active">Eyes</div>
+          <div>Mouth</div>
+          <div>Head</div>
+        </div>
+        <div class="carousel__slides">
+          <div class="carousel__slide active" data-carousel-label="Eyes">
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="a"
+              >
+                <img src="img/player/eye/a.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="b"
+              >
+                <img src="img/player/eye/b.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="c"
+              >
+                <img src="img/player/eye/c.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="d"
+              >
+                <img src="img/player/eye/d.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="e"
+              >
+                <img src="img/player/eye/e.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="f"
+              >
+                <img src="img/player/eye/f.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="g"
+              >
+                <img src="img/player/eye/g.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="eye"
+                data-costume-name="h"
+              >
+                <img src="img/player/eye/h.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slide" data-carousel-label="Mouth">
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="a"
+              >
+                <img src="img/player/mouth/a.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="b"
+              >
+                <img src="img/player/mouth/b.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="c"
+              >
+                <img src="img/player/mouth/c.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="d"
+              >
+                <img src="img/player/mouth/d.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="e"
+              >
+                <img src="img/player/mouth/e.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="f"
+              >
+                <img src="img/player/mouth/f.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="g"
+              >
+                <img src="img/player/mouth/g.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item mouth"
+                data-costume-type="mouth"
+                data-costume-name="h"
+              >
+                <img src="img/player/mouth/h.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="carousel__slide" data-carousel-label="Head">
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="a"
+              >
+                <img class="player_head" src="img/player/head/a.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="b"
+              >
+                <img class="player_head" src="img/player/head/b.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="c"
+              >
+                <img class="player_head" src="img/player/head/c.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="d"
+              >
+                <img class="player_head" src="img/player/head/d.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="e"
+              >
+                <img class="player_head" src="img/player/head/e.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="f"
+              >
+                <img class="player_head" src="img/player/head/f.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="g"
+              >
+                <img class="player_head" src="img/player/head/g.svg" />
+              </div>
+            </div>
+            <div class="carousel__item">
+              <div
+                class="costume_item"
+                data-costume-type="head"
+                data-costume-name="h"
+              >
+                <img class="player_head" src="img/player/head/h.svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form id="nickname_form">
+        <div class="input_submit">
+          <input
+            id="nickname_input"
+            type="text"
+            placeholder="Pick a nickname"
+          />
+          <button id="nickname_submit" type="submit">Enter</button>
+        </div>
+      </form>
+
+      <script src="js/lobby.js"></script>
+    </main>
+
+    <script src="js/spa.js"></script>
+  </body>
+</html>

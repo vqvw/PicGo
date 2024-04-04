@@ -1,0 +1,160 @@
+:root {
+  --canvasWidth: 100vw;
+  --canvasHeight: 56.25vw;
+
+  --chatWidth: calc(100vw - var(--canvasWidth));
+
+  --controlsSize: 2rem;
+  --playerHeadSize: 3rem;
+  --inputHeight: 1.25rem;
+}
+
+main.room {
+  justify-content: flex-start;
+  padding-top: var(--spacing);
+}
+
+main.room > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.room .stage {
+  width: calc(var(--canvasWidth) - var(--spacing));
+  height: calc(var(--canvasHeight) - var(--spacing));
+  position: relative;
+  margin-bottom: var(--spacing);
+}
+
+.room .stage .logo {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  height: 1.25rem;
+  filter: none;
+  filter: invert(100);
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 2;
+}
+
+.room .stage > canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.room #baseCanvas {
+  background-color: white;
+  filter: var(--drop-shadow);
+}
+
+.room .controls {
+  width: calc(100% - var(--spacing));
+  display: flex;
+  margin-bottom: var(--spacing);
+}
+
+.room .controls button {
+  width: var(--controlsSize);
+  height: var(--controlsSize);
+}
+
+.room .controls__erase::after {
+  background-image: url("../img/erase.svg");
+}
+
+.room .chat__submit::after {
+  background-image: url("../img/send.svg");
+  transform: translateX(-0.15rem) rotate(10deg);
+}
+
+.room .chat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.room .chat__players {
+  background-color: rgba(255, 255, 255, 0.25);
+  width: calc(100% - var(--spacing));
+  border-radius: 0.5rem;
+  height: calc(var(--playerHeadSize) + var(--spacing) * 2);
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  margin-bottom: var(--spacing);
+}
+
+.room .player_costume {
+  height: var(--playerHeadSize);
+  width: var(--playerHeadSize);
+  margin: calc(var(--spacing) / 2);
+}
+
+.room .chat__log {
+  width: 100%;
+  height: calc(
+    100vh - var(--canvasHeight) - var(--controlsSize) - var(--playerHeadSize) -
+      var(--inputHeight) - var(--spacing) * 7 - var(--spacing) / 2
+  );
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: var(--spacing);
+}
+
+.room .chat_bubble {
+  display: flex;
+  margin: 0 var(--spacing);
+}
+
+.room .chat_bubble > div {
+  background: linear-gradient(160deg, #2c2c2c, black);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 99rem;
+  border-bottom-left-radius: 0;
+  margin-top: 0.1rem;
+}
+
+.room .chat__form {
+  margin-bottom: var(--spacing);
+  width: 100%;
+}
+
+.room .chat__form .input_submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.room .chat__form input {
+  width: 82%;
+}
+
+@media (orientation: landscape) {
+  :root {
+    --canvasWidth: 75vw;
+    --canvasHeight: 42.187499999vw;
+  }
+
+  main.room {
+    flex-direction: row;
+    width: 95%;
+  }
+
+  main.room > div {
+    width: var(--canvasWidth);
+    height: var(--canvasHeight);
+  }
+
+  .room .chat__log {
+    height: calc(var(--canvasHeight) - var(--spacing) * 20);
+  }
+}
